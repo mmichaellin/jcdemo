@@ -15,6 +15,8 @@ class ProductGrid extends React.Component {
     }
   }
   componentDidMount() {
+    // The API call is being substituted by directly importing the file
+    // Right after the "API call," the data is sent to the redux store
     this.props.setProducts(productList.productList[0].products)
     this.setState({
       products: productList.productList[0].products
@@ -33,6 +35,7 @@ class ProductGrid extends React.Component {
       <>
         {uniques.map((prod, idx) => (
           <Link href={`/components/productpage/${prod.productCode}`} key={idx}>
+            {/* the link redirects users to [pid].js in the productpage folder */}
             <div className={styles.tile}>
               <ProductTile
                 price={prod.listPrice.formatted}
